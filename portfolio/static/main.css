@@ -10,11 +10,15 @@ body {
     color: #000000;
 }
 
+.text-date {
+    color: #686868;
+}
+
 .card-effect:hover {
     border: 1px solid #ffffff;
     /* cursor: pointer; */
 }
 
 .fsize {
-    font-size: 0.6r em;
+    font-size: 0.6rem;
 }

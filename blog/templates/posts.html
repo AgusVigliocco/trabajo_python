@@ -1,16 +1,26 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h1>Publicaciones</h1>
 
 {% for post in posts %}
 
-<h2>{{post.title}}</h2>
-<img class='img-fluid' src="{{post.image.url}}" alt="{{post.title}}">
-<p>{{post.date|date:'d M Y'}}</p>
-<p>{{post.description|truncatechars:100}}</p>
+<div class="p-3">
+    <div class="card card-body bg-black">
+        <div class="row">
+            <div class="col-3">
+                <img class='img-fluid' src="{{post.image.url}}" alt="{{post.title}}">
+            </div>
 
-<a href="{% url 'blog:post_detail' post.id %}">{{post.title}}</a>
+            <div class="col-9">
+                <h1>Publicaciones</h1>
+                <h2>{{post.title}}</h2>
+                <p>{{post.date|date:'d M Y'}}</p>
+                <p>{{post.description|truncatechars:100}}</p>
+                <a class="btn btn-primary" href="{% url 'blog:post_detail' post.id %}">{{post.title}}</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endfor%}
 
