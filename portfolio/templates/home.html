@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<header class="d-flex m-5 bg-black">
+    <div class="col-md-4">
+        <img class='img-fluid' src="{% static 'portfolio/djangoPython.jpg' %}" alt="">
+    </div>
+
+    <div class="col-md-8 my-autod-flex justify-content-evenly flex-column text-center align-self-center">
+        <h1>Primer trabajo con DJANGO</h1>
+        <h3>Trabajo en grupo CoderHouse</h3>
+        <p>Agustin Vigliocco - Alexander Klein - Ariel Botello </p>
+    </div>
+</header>
+
+<div class="row my4 text-center">
+
+    <h3>Nuestros proyectos</h3>
+
+    {% for project in projects %}
+
+    <div class="col-md-4 p-4">
+        <div class="card bg-black card-effect">
+            <div class="card-body">
+
+                <h2>{{ project.title }}</h2>
+
+                <img style="height: 150px" src="{{project.image.url}}" alt="{{project.title}}" class="img-fluid">
+
+                <p>{{ project.description }}</p>
+
+                {% if project.url%}
+                <a class="btn btn-light btn-sm fsize" href="{{ project.url }}">{{ project.url }}</a>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+
+    {% endblock %}
+
+</div>
